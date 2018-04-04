@@ -28,13 +28,6 @@ const parse = text => {
     const json = JSON5.parse(text)
     return json
   } catch (err) {
-    try {
-      const json = JSON.parse(text)
-      return json
-    } catch (err) {
-      handleError(err)
-      process.exit(1)
-    }
     handleError(err)
     process.exit(1)
   }
@@ -60,7 +53,12 @@ async function main() {
         process.exit(1)
       }
     }`)
-  console.log(JSON.stringify(fx5(json), null, 2).replace(/(^")|("$)/g, ''))
+  const string = JSON.stringify(fx5(json), null, 2)
+  if (string) {
+    console.log(string.replace(/(^")|("$)/g, ''))
+  } else {
+    console.log(string)
+  }
 }
 
 main()

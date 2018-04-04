@@ -13,7 +13,7 @@ Usage
 ### example1
 
 ```bash
-echo '{"menu": {
+$ echo '{"menu": {
   "id": "file",
   "value": "File",
   "popup": {
@@ -47,7 +47,7 @@ echo '{"menu": {
 ### example2
 
 ```bash
-echo '{"menu": {
+$ echo '{"menu": {
   "id": "file",
   "value": "File",
   "popup": {
@@ -69,8 +69,8 @@ New Open Close
 
 - pipeline-operator
 
-```
-echo '{"menu": {
+```bash
+$ echo '{"menu": {
   "id": "file",
   "value": "File",
   "popup": {

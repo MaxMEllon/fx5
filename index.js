@@ -40,10 +40,16 @@ const parse = text => {
   }
 }
 
+const transpile = (code = 'x => x') => {
+  const result = require('@babel/core').transform(code, {
+    presets: ['module:@maxmellon/babel-preset']
+  })
+  return result.code
+}
+
 async function main() {
   const text = await stdin()
-  let code = process.argv[2]
-  if (!code) code = 'x => x'
+  const code = transpile(process.argv[2])
   const json = parse(text)
   const fx5 = eval(`json => {
       try {

@@ -12,8 +12,6 @@ Usage
 
 ### example1
 
-- command
-
 ```bash
 echo '{"menu": {
   "id": "file",
@@ -28,8 +26,6 @@ echo '{"menu": {
 }}
 ' | fx5 'x => x.menu.popup.menuitem'
 ```
-
-- output
 
 ```
 [
@@ -50,8 +46,6 @@ echo '{"menu": {
 
 ### example2
 
-- command
-
 ```bash
 echo '{"menu": {
   "id": "file",
@@ -67,10 +61,35 @@ echo '{"menu": {
 ' | fx5 'x => x.menu.popup.menuitem.reduce((acc, cur) => acc + cur.value + " ", "")'
 ```
 
-- output
-
 ```
 New Open Close
+```
+
+### example3
+
+- pipeline-operator
+
+```
+echo '{"menu": {
+  "id": "file",
+  "value": "File",
+  "popup": {
+    "menuitem": [
+      {"value": "New", "onclick": "CreateNewDoc()"},
+      {"value": "Open", "onclick": "OpenDoc()"},
+      {"value": "Close", "onclick": "CloseDoc()"}
+    ]
+  }
+}}
+' | fx5 'x => x.menu |> Object.keys'
+```
+
+```
+[
+  "id",
+  "value",
+  "popup"
+]
 ```
 
 Requirements

@@ -1,11 +1,11 @@
 # fx5
 
-Inspired
+Installation
 ---
 
-- **[antonmedv/fx](https://github.com/antonmedv/fx)**
-
-Special Thanks!!!!
+```
+$ npm i -g @maxmellon/fx5
+```
 
 Usage
 ---
@@ -72,3 +72,17 @@ echo '{"menu": {
 ```
 New Open Close
 ```
+
+Requirements
+---
+
+- node >= 9
+
+
+Inspired
+---
+
+- **[antonmedv/fx](https://github.com/antonmedv/fx)**
+
+Special Thanks!!!!
+

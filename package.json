@@ -5,6 +5,12 @@
   "bin": {
     "fx5": "./bin/fx5"
   },
+  "scripts": {
+    "test": "mocha --require intelli-espower-loader ./test/*.js"
+  },
+  "directories": {
+    "test": "test/"
+  },
   "repository": "ssh://git@github.com/MaxMEllon/fx5.git",
   "author": "MaxMEllon <maxmellon1994@gmail.com>",
   "license": "MIT",
@@ -13,5 +19,11 @@
     "@maxmellon/babel-preset": "^1.1.8",
     "get-stdin": "^6.0.0",
     "json5": "^1.0.1"
+  },
+  "devDependencies": {
+    "intelli-espower-loader": "^1.0.1",
+    "mocha": "^5.0.5",
+    "power-assert": "^1.5.0"
   }
 }
+

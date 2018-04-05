@@ -1,44 +1,5 @@
-const JSON5 = require('json5')
 const stdin = require('get-stdin')
-
-const last = array => {
-  // set zero if null or undefined.
-  const length = array == null ? 0 : array.length
-  return length ? array[length - 1] : void 0
-}
-
-const usage = () => {
-  console.log(`
-Usage:
-
-  WIP
-  `)
-}
-
-const handleError = err => {
-  if (err.lineNumber) {
-    console.error(`${err.lineNumber}:${err.columnNumber}  ${err.message}`)
-  } else {
-    usage()
-  }
-}
-
-const parse = text => {
-  try {
-    const json = JSON5.parse(text)
-    return json
-  } catch (err) {
-    handleError(err)
-    process.exit(1)
-  }
-}
-
-const transpile = (code = 'x => x') => {
-  const result = require('@babel/core').transform(code, {
-    presets: ['module:@maxmellon/babel-preset']
-  })
-  return result.code
-}
+const { parse, last, transpile } = require('./lib/utils')
 
 async function main() {
   const text = await stdin()
@@ -61,6 +22,4 @@ async function main() {
   }
 }
 
-main()
-  .catch(err => console.error(err))
-
+module.exports = main

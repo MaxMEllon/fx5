@@ -1,3 +1,4 @@
 #!/usr/bin/env node
 
-require('../index')
+require('../index')()
+  .catch(err => console.error(err))
